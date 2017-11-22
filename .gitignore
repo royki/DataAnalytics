@@ -1,6 +1,13 @@
 *.class
 *.log
-/target
-.settings
-/bin
+target/
+bin
+.settings/
 .classpath
+.cache
+.project
+.history
+.lib/
+project/plugins/project/
+project/project/target
+project/target
