@@ -6,7 +6,7 @@ object UsingSeq extends App {
 	
 	val year = 2016
 	val nationalData = {
-		val source = scala.io.Source.fromFile(s"Babynames/names/yob$year.txt")
+		val source = scala.io.Source.fromFile(s"resources/Babynames/names/yob$year.txt")
 		// names is iterator of String, split() gives the array
 		//.toArray & toSeq is a slow process compare to .toSet  // .toSeq gives Stream Closed error
 		val names = source.getLines().filter(_.nonEmpty).map(_.split(",")(0)).toArray
@@ -17,9 +17,9 @@ object UsingSeq extends App {
 	println("Names " + nationalData.mkString(","))
 
 	// run through every state
-	for (stateFile <- new java.io.File("Babynames/namesbystate").list(); if stateFile.endsWith(".TXT")) {
+	for (stateFile <- new java.io.File("resources/Babynames/namesbystate").list(); if stateFile.endsWith(".TXT")) {
 		val stateData = {
-			val source = scala.io.Source.fromFile("Babynames/namesbystate/"+stateFile)
+			val source = scala.io.Source.fromFile("resources/Babynames/namesbystate/"+stateFile)
 			val names = source.getLines().filter(_.nonEmpty).map(_.split(",")).
 				filter(a => a(2).toInt == year).map(a => a(3)).toArray
 		  val count = names.count(n => nationalData.contains(n))

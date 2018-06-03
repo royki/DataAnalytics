@@ -40,9 +40,9 @@ object UsingSets extends App {
 	println("Total namses in " + year + " " +nationalData.size)	
 	println(info(0)._2.size + " names from state "+ info(0)._1)
 	println(info(1)._2.size + " names from state "+ info(1)._1)
-	val start = System.nanoTime()
+	/*val start = System.nanoTime()
 	for ((state, sname) <- info) {
 		 println("State: " +state + " Coverage of name in "+ year+" "+ sname.count(n => nationalData.contains(n)).toDouble / nationalData.size) // Set doesn't have length method
 	}
-	 println((System.nanoTime() - start) / 1e9)
+	 println((System.nanoTime() - start) / 1e9)*/
 }

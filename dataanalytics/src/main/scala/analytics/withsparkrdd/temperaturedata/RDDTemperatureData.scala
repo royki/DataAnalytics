@@ -3,6 +3,8 @@ package analytics.withsparkrdd.temperaturedata
 import org.apache.spark.SparkConf
 import org.apache.spark.SparkContext
 
+// Resilient Distributed Dataset
+
 case class TemperatureData(day: Int, doy: Int, month: Int, year: Int, precip: Double, snow: Double, tave: Double,
   tmax: Double, tmin: Double)
 

@@ -94,12 +94,15 @@ object TemperatureData {
     println("=========[using Scala groupBy] ==========")
     // => groupBy
     // avg temp by month accross entire data set
-    val monthGroups = data.groupBy(_.month)
-    val monthlyTemp = monthGroups.map{ case(m, days) =>
-      m -> days.foldLeft(0.0)((sum, tempdata) => sum+tempdata.tmax) / days.length
+    val monthGroups = data.groupBy(_.month)    
+    // avg temp of month
+    val monthlyTemp = monthGroups.map{ case(months, days) =>
+      months -> days.foldLeft(0.0)((sum, tempdata) => sum+tempdata.tmax) / days.length
     }
     
-    println(s"Monthly highest temp is ${monthlyTemp}")
+    // println(s"Monthly highest temp is ${monthlyTemp}")
+    
+    println("Convert to Seq, it gives tuple and then sort by months")
     monthlyTemp.toSeq.sortBy(_._1) foreach println
   }
 }

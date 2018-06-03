@@ -12,7 +12,7 @@ object UsingMap extends App {
   
 
 		val stateInfo =  for (stateData <- new java.io.File("resources/Babynames/namesbystate/").list(); if stateData.endsWith(".TXT")) yield {
-		val source = scala.io.Source.fromFile("Babynames/namesbystate/" + stateData)
+		val source = scala.io.Source.fromFile("resources/Babynames/namesbystate/" + stateData)
 		val nameInfo = source.getLines().filter(_.nonEmpty).map { line =>
 			val p = line.split(",")
 			nameData(p(1)(0), p(2).toInt, p(3), p(4).toInt)
